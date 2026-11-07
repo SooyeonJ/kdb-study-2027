@@ -47,7 +47,7 @@ jobs:
           code { font-family:monospace; font-size: 9pt; overflow-wrap:anywhere; }
           blockquote { padding:3pt 10pt; margin:6pt 0; border-left:3pt solid #bfd1e7; color:#41546d; }
           """
-          for src in ("Questions.md", "Answers.md"):
+          for src in ("Questions.md", "Answers.md", "Survey_Results.md"):
               text = (base / src).read_text(encoding="utf-8")
               content = markdown.markdown(text, extensions=["tables", "fenced_code"])
               HTML(string=f'<html lang="ko"><meta charset="utf-8"><style>{css}</style><body>{content}</body></html>',
@@ -59,8 +59,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add weekly/wk01_261107/Questions.pdf weekly/wk01_261107/Answers.pdf
+          git add weekly/wk01_261107/Questions.pdf weekly/wk01_261107/Answers.pdf weekly/wk01_261107/Survey_Results.pdf
           if ! git diff --cached --quiet; then
-            git commit -m "docs: publish 261107 practice questions and answers as PDFs"
+            git commit -m "docs: publish wk01_261107 study PDFs including survey"
             git push
           fi
