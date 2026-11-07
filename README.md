@@ -9,7 +9,7 @@
 | 수연 | 전공 | [📂](./members/수연) | sooyeon6063@gmail.com |
 | 소정 | 비전공 | [📂](./members/소정) | sojung0734@naver.com |
 | 성욱 | 전공 | [📂](./members/성욱) | jshsy0130@gmail.com |
-| 경인 | 전공 | [📂](./members/경인) | b_mule@naver.com |
+| 경인 | 전공 | [📂](./members/경인) | rhkrruddls19999@gmail.com |
 | 승혜 | 전공 | [📂](./members/승혜) | drimh0226@gmail.com |
 
 ---
@@ -59,7 +59,7 @@ kdb-study-2027/
 │   ├── 성욱/
 │   ├── 경인/
 │   └── 승혜/
-├── weekly/          # 주차별 모임 문제·해설
+├── weekly/          # 주차별 스터디 문제·해설
 └── resources/       # 기출·참고 자료
 ```
 
