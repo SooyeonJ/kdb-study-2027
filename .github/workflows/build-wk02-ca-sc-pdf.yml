@@ -1,0 +1,67 @@
+name: Publish wk02 CA SC answer PDF
+
+on:
+  push:
+    paths:
+      - 'weekly/wk02_261115/wk02_CA, SC_수연_해설.md'
+      - '.github/workflows/build-wk02-ca-sc-pdf.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install PDF dependencies and Korean fonts
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y fonts-noto-cjk
+          python -m pip install --quiet markdown weasyprint
+
+      - name: Render answer PDF
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import markdown
+          from weasyprint import HTML
+
+          folder = Path("weekly/wk02_261115")
+          src = folder / "wk02_CA, SC_수연_해설.md"
+          dst = folder / "wk02_CA, SC_수연_해설.pdf"
+          content = markdown.markdown(src.read_text(encoding="utf-8"), extensions=["tables", "fenced_code"])
+          css = """
+          @page { size: A4; margin: 18mm 17mm 20mm; }
+          body { font-family: "Noto Sans CJK KR", "Noto Sans", sans-serif;
+                 color: #1c2a3d; font-size: 9.3pt; line-height: 1.53; }
+          h1 { color: #173658; font-size: 17pt; line-height: 1.35; }
+          h2 { color: #173658; font-size: 12pt; border-bottom: 1px solid #b7c8dd;
+               padding-bottom: 5pt; margin-top: 17pt; break-after: avoid; }
+          h3 { color: #215887; font-size: 10pt; margin-top: 11pt; break-after: avoid; }
+          p, li { orphans: 2; widows: 2; }
+          table { width: 100%; border-collapse: collapse; margin: 7pt 0;
+                  font-size: 8pt; break-inside: avoid; }
+          tr { break-inside: avoid; }
+          th, td { border: 0.5pt solid #bfcbd7; padding: 4pt 6pt; vertical-align: top; }
+          th { background: #edf2f7; }
+          code { font-size: 8.7pt; word-wrap: break-word; }
+          hr { border: none; border-top: 1pt solid #dae3ec; margin: 10pt 0; }
+          strong { color: #162e48; }
+          """
+          html = f'<html lang="ko"><meta charset="utf-8"><style>{css}</style><body>{content}</body></html>'
+          HTML(string=html, base_url=str(folder.resolve())).write_pdf(str(dst))
+          print("Generated:", dst)
+          PY
+
+      - name: Commit generated PDF
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "weekly/wk02_261115/wk02_CA, SC_수연_해설.pdf"
+          if ! git diff --cached --quiet; then
+            git commit -m "docs: publish wk02 CA SC answer PDF"
+            git push
+          fi
