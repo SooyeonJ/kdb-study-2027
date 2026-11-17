@@ -1,0 +1,76 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Length 2125 >>
+stream
+0.16 0.23 0.36 rg
+BT /F1 18 Tf 48 781 Td (NW Answer Key - IPv4 Subnetting) Tj ET
+0.55 0.60 0.68 RG 1 w 48 765 m 548 765 l S
+0.12 0.23 0.39 rg
+BT /F1 12 Tf 48 744 Td (\(1\) Subnet mask and address counts [5 points]) Tj ET
+0.1 0.12 0.16 rg
+BT /F1 10 Tf 58 723 Td (Prefix /27 means 27 network bits and 5 host bits.) Tj ET
+0.1 0.12 0.16 rg
+BT /F1 10 Tf 58 707 Td (Subnet mask: 255.255.255.224) Tj ET
+0.1 0.12 0.16 rg
+BT /F1 10 Tf 58 691 Td (Total addresses: 2^\(32-27\) = 2^5 = 32.) Tj ET
+0.1 0.12 0.16 rg
+BT /F1 10 Tf 58 675 Td (Usable host addresses: 32 - 2 = 30.) Tj ET
+0.1 0.12 0.16 rg
+BT /F1 10 Tf 58 659 Td (Scoring: mask 2, total 1, usable hosts 2.) Tj ET
+0.12 0.23 0.39 rg
+BT /F1 12 Tf 48 626 Td (\(2\) Network, broadcast, and host range [5 points]) Tj ET
+0.1 0.12 0.16 rg
+BT /F1 10 Tf 58 605 Td (Block size: 256 - 224 = 32; subnet boundaries: 0, 32, 64, 96, ...) Tj ET
+0.1 0.12 0.16 rg
+BT /F1 10 Tf 58 589 Td (Network address: 192.168.100.64) Tj ET
+0.1 0.12 0.16 rg
+BT /F1 10 Tf 58 573 Td (Broadcast address: 192.168.100.95) Tj ET
+0.1 0.12 0.16 rg
+BT /F1 10 Tf 58 557 Td (Usable host range: 192.168.100.65 through 192.168.100.94) Tj ET
+0.1 0.12 0.16 rg
+BT /F1 10 Tf 58 541 Td (Scoring: network 2, broadcast 1, host range 2.) Tj ET
+0.12 0.23 0.39 rg
+BT /F1 12 Tf 48 508 Td (\(3\) Longest prefix for at least 50 usable hosts [5 points]) Tj ET
+0.1 0.12 0.16 rg
+BT /F1 10 Tf 58 487 Td (Solve 2^h - 2 >= 50.  The smallest possible h is 6.) Tj ET
+0.1 0.12 0.16 rg
+BT /F1 10 Tf 58 471 Td (Longest feasible prefix: 32 - 6 = /26.) Tj ET
+0.1 0.12 0.16 rg
+BT /F1 10 Tf 58 455 Td (Usable host addresses: 2^6 - 2 = 62.) Tj ET
+0.1 0.12 0.16 rg
+BT /F1 10 Tf 58 439 Td (Scoring: correct inequality/method 2, prefix 2, capacity 1.) Tj ET
+0.12 0.23 0.39 rg
+BT /F1 12 Tf 48 406 Td (Assumptions / notes) Tj ET
+0.1 0.12 0.16 rg
+BT /F1 10 Tf 58 385 Td (Standard IPv4 subnetting: network and broadcast addresses are reserved.) Tj ET
+0.1 0.12 0.16 rg
+BT /F1 10 Tf 58 369 Td (Original exercise \(not a verbatim past exam question\).) Tj ET
+0.45 0.45 0.45 rg
+BT /F1 8 Tf 48 44 Td (KDB IT Study | Week 03 | 2026-11-21 | Prepared by Sooyeon) Tj ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000000338 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2514
+%%EOF
